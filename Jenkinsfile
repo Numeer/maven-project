@@ -14,7 +14,12 @@ pipeline {
                git 'https://github.com/ashokitschool/maven-web-app.git'
             }
         }
-        
+        stage('Static Code Analysis'){
+          steps {
+            bat "mvn pmd:pmd"
+            bat "mvn findbugs:findbugs"
+          }
+        }
         
         
     }
